@@ -7,15 +7,6 @@
 ### Screenshot 6
 ![Screenshot 599](screenshots/Screenshot%20(599).png)
 
-### Screenshot 2
-![Screenshot 595](screenshots/Screenshot%20(595).png)
-
-### Screenshot 3
-![Screenshot 596](screenshots/Screenshot%20(596).png)
-
-### Screenshot 6
-![Screenshot 599](screenshots/Screenshot%20(599).png)
-
 ### Screenshot 7
 ![Screenshot 600](screenshots/Screenshot%20(600).png)
 
@@ -30,6 +21,16 @@
 
 ### Screenshot 11
 ![Screenshot 604](screenshots/Screenshot%20(604).png)
+
+
+### Screenshot 2
+![Screenshot 595](screenshots/Screenshot%20(595).png)
+
+### Screenshot 3
+![Screenshot 596](screenshots/Screenshot%20(596).png)
+
+### Screenshot 6
+![Screenshot 599](screenshots/Screenshot%20(599).png)
 
 ### Screenshot 12
 ![Screenshot 605](screenshots/Screenshot%20(605).png)
