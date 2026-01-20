@@ -1,68 +1,91 @@
 import React, { useState } from "react";
-import '../register/register.css'
-import { Link, useHistory } from "react-router-dom";
-function Login(){
-    const [loginName,setLoginName]=useState('')
-    const [loginPassword,setLoginPassword]=useState('')
-    const [loginNameErr,setLoginNameErr]=useState(false)
-    const [loginPasswordErr,setPasswordErr]=useState(false)
-    const [incorrectErr,setincorrectErr]=useState(false)
-   //  function showpassword(e){
-   //    if(e.type === "password"){
-   //       e.type='text'
-   //    }
-   //    else{
-   //       e.type ="password"
-   //    }
-   //  }
-      const history=useHistory()
-    function Loginvalidation() { 
-         
-             if(loginName.trim().length!==0){
-                setLoginNameErr(false)
-                }
-                 else{ 
-                setLoginNameErr(true)
-                 }
-                 if(loginPassword.trim().length!==0){
-                    setPasswordErr(false)
-                    }
-                     else{ 
-                        setPasswordErr(true)
-                     }
-let register= JSON.parse (sessionStorage.getItem('user') )
-if((register.name!==loginName)||(register.password!==loginPassword)){
-    setincorrectErr(true)
- }
- else{
-    setincorrectErr(false)
-    history.push('/home') 
- }
-    
-}
-  return(
-        <div className="login-body">
-        <div className="login-main">
-            <h1>Login </h1>   
-            {incorrectErr&& <small style={{color:'red',textAlign:'center'}}> Enter the correct username and password</small>}   
-            <br />
-             <p>Name</p>
-            <input type='text' value={loginName} onChange={(e)=>{setLoginName(e.target.value)}}></input>
-             {loginNameErr&& <small  style={{color:'#d3521d'}}>Please enter the Username</small>}
-            <br />
-            <p>Password</p>
-            <input type='password' value={loginPassword} onChange={(e)=>{setLoginPassword(e.target.value)}}></input>
-             {loginPasswordErr&& <small  style={{color:'#d3521d'}}>Please enter the password </small>}
-            {/* <div>
-            <input type="checkbox" onclick={()=>showpassword(loginPassword)} />Show Password
-            </div> */}
-            <br />
-          
-            <button onClick={Loginvalidation}>Login</button><br />
-            <p style={{fontSize:'15px'}}>Doesn't have an account yet? <Link to={'/'}>Sign up</Link></p>
-        </div>
+import { useHistory } from "react-router-dom";
+import "../register/register.css";
 
-        </div>
-    )
+
+function Login() {
+  const [isLogin, setIsLogin] = useState(true);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const history = useHistory();
+
+  function handleSubmit() {
+    if (!password || (!isLogin && (!name || !email))) {
+      setError("Please fill all fields");
+      return;
+    }
+
+    if (!isLogin) {
+      // REGISTER
+      sessionStorage.setItem(
+        "user",
+        JSON.stringify({ name, email, password })
+      );
+      setError("");
+      setIsLogin(true);
+    } else {
+      // LOGIN
+      const user = JSON.parse(sessionStorage.getItem("user"));
+      if (!user) {
+        setError("Please register first");
+      } else if (
+        user.name !== name ||
+        user.password !== password
+      ) {
+        setError("Invalid credentials");
+      } else {
+        setError("");
+        history.push("/home");
+      }
+    }
+  }
+
+  return (
+    <div className="auth-body">
+      <div className="auth-card">
+        <h2>{isLogin ? "Login" : "Register"}</h2>
+
+        {error && <p className="error">{error}</p>}
+
+        <input
+          type="text"
+          placeholder="Username"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        {!isLogin && (
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        )}
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button onClick={handleSubmit}>
+          {isLogin ? "Login" : "Register"}
+        </button>
+
+        <p className="auth-text">
+          {isLogin ? "Don't have an account?" : "Already have an account?"}
+          <span onClick={() => setIsLogin(!isLogin)}>
+            {isLogin ? " Register" : " Login"}
+          </span>
+        </p>
+      </div>
+    </div>
+  );
 }
-export default Login
+
+export default Login;

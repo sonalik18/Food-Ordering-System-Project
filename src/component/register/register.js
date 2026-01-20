@@ -1,48 +1,69 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "../register/register.css"
-function Register(){
-    const [username,setUsername]=useState('')
-    const [email,setEmail]=useState('')
-    const [password,setpassword]=useState('')
-    const [nameErr,setnameErr]=useState(false)
-    const history=useHistory()
-    function registertration(){
-        if((username.trim().length===0)||(password.trim().length===0)||(email.trim().length===0)){
-                setnameErr(true)
-        }
-        else if(!email.includes('@','.','com')){
-            alert('please Enter valid email address')
-        }
-        else if(password.length<5){
-            alert('please enter the password more than five characters')
-        }
-        else{
-            setnameErr(false)
-            const array =[{username:username,email:email,password:password}]
-            console.log(array)
-            sessionStorage.setItem('user',JSON.stringify({'name':username,'email':email,'password':password}))
-            history.push('/login')
-        }
+import "./register.css";
+
+
+function Register() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const history = useHistory();
+
+  function registerHandler() {
+    if (!username || !email || !password) {
+      setError("Please fill all fields");
+    } else if (!email.includes("@")) {
+      setError("Enter valid email");
+    } else if (password.length < 5) {
+      setError("Password must be at least 5 characters");
+    } else {
+      setError("");
+      sessionStorage.setItem(
+        "user",
+        JSON.stringify({ name: username, email, password })
+      );
+      history.push("/login");
     }
-    return(
-        <div className="register-body">
-        <div className="register-main">
-            <h1>Register Form</h1>
-            {nameErr&& <p className="errP">*please fill every input field*</p>}
-            <br />
-            <p>Name</p>
-            <input type='text' value={username} onChange={(e)=>{setUsername(e.target.value)}}></input>
-            <br />
-            <p>Email</p>
-            <input type='text'value={email} onChange={(e)=>{setEmail(e.target.value)}}></input>
-            <br />
-            <p>Password</p>
-            <input type='password'value={password} onChange={(e)=>{setpassword(e.target.value)}}></input>
-            <br /><br />
-            <button onClick={registertration}>Register</button>
-        </div>
-        </div>
-    )
+  }
+
+  return (
+    <div className="auth-body">
+      <div className="auth-card">
+        <h2>Register</h2>
+
+        {error && <p className="error">{error}</p>}
+
+        <input
+          type="text"
+          placeholder="Name"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button onClick={registerHandler}>Register</button>
+
+        <p className="auth-text">
+          Already have an account? <span onClick={() => history.push("/login")}>Login</span>
+        </p>
+      </div>
+    </div>
+  );
 }
-export default Register
+
+export default Register;

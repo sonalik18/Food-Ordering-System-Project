@@ -1,65 +1,114 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-.register-main, .login-main{
+/* Common background */
+/* Common background – Veg Food Ordering Theme */
+.auth-body {
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1543353071-873f17a7a088");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-    width: 450px;
-    display: flex;
-   position: absolute;
-   left:35%;
-    flex-flow: column;
-    margin-top: 60px;
-    justify-self: center;
-    padding: 50px;
-    background-color: rgba(253, 254, 254, 0.9);
-    border-radius: 10px;
-    box-shadow: 2px 2px 6px black;
-}
-.errP{
-    align-self: center;
-    color: red;
-    margin-top: 10px;
-}
-.register-main p, .login-main p{
-    line-height: 6px;
-    font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
 
+/* Common card */
+.auth-card {
+  background: #ffffff;
+  width: 360px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out; /* ✅ added */
 }
-.register-main h1, .login-main h1{
-    align-self: center;
-}
-.register-main input, .login-main input{
-    border-top: none;
-    border-left:none;
-    border-right:none;
-    background-color: transparent;
-    outline-style: none;
-    color: dimgrey;
 
+.auth-card h2 {
+  margin-bottom: 20px;
+  color: #333; /* ✅ added */
 }
-input:focus{
-    border-color: rgb(168, 82, 22);
-    caret-color: chocolate ;
+
+/* Inputs */
+.auth-card input {
+  width: 100%;
+  padding: 10px;
+  margin: 12px 0;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 15px;
+  transition: border-color 0.3s; /* ✅ added */
 }
-.register-main button, .login-main button{
-    margin: 20px 0px !important;
-    height: 40px;
-    width: 100px;
-    align-self: center;
-    border: none;
-    background-color: rgb(11, 169, 11);
-    color: white;
-    
+
+.auth-card input::placeholder {
+  color: #999; /* ✅ added */
 }
-.register-main button:hover, .login-main button:hover{
-    box-shadow: 2px 3px 5px black;
-    background-color: rgb(3, 149, 3);
+
+.auth-card input:focus {
+  border-color: #667eea;
 }
-.login-body, .register-body{
-    background-image: url(../Dashboard/image/jeni.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 806px;
-    margin-top: -61px;
-    padding-top: 132px;
+
+/* Button */
+.auth-card button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 18px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* ✅ added */
+}
+
+.auth-card button:hover {
+  background-color: #5a67d8;
+  transform: translateY(-1px); /* ✅ added */
+}
+
+/* Error text */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Link text */
+.auth-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.auth-text span,
+.auth-text a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ✅ Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 400px) {
+  .auth-card {
+    width: 100%;
+    padding: 20px;
+  }
 }

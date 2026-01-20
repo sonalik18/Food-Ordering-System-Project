@@ -36,7 +36,7 @@ function Profile(){
                 : <p> {data.name}</p><br />
                 
                 <label> Phone no </label>
-                : <p>9003079869</p>
+                : <p>9021547344</p>
                 <label>Address </label>
                 <div style={{marginLeft:'208px',marginTop:'-32PX'}}> 
                  <textarea rows="4" cols="55" value={inputValue} onChange={(e)=>setInput(e.target.value)} placeholder='Enter Your Address...'></textarea>
