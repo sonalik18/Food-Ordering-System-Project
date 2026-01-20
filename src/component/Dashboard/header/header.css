@@ -1,0 +1,269 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 0px 5px 0px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.926);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 📍 Location + Search Section */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.location-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-box {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.location-text {
+  margin: 0 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.dropdown-icon {
+  font-size: 14px;
+  color: gray;
+}
+
+.location-dropdown-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 260px;
+  padding: 12px 10px;
+  z-index: 1000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.location-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.location-dropdown:hover {
+  background-color: #f9f9f9;
+}
+
+.detect-icon {
+  font-size: 22px;
+  color: #ff4d4d;
+}
+
+.detect-text {
+  font-weight: 500;
+  color: #e53935;
+}
+
+.detect-sub {
+  font-size: 12px;
+  color: gray;
+}
+
+
+/* 🔍 Search Input */
+.search-input {
+  width: 400px;
+  height: 44px;
+  padding: 0 15px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+
+.search-input + button,
+.search-button {
+  height: 45px;
+  width: 130px;
+  border: none;
+  background-color: rgba(255, 127, 9, 0.9);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.categories {
+  background-color: rgba(244, 158, 0, 0.6);
+  padding-top: 30px;
+  box-shadow: 0px 10px 30px black;
+}
+
+.home {
+  position: relative;
+  margin: 0;
+}
+
+.msg {
+  background-color: rgba(255, 127, 9, 0.9);
+  color: white;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.bg {
+  background-image: url(../image/jeni1.jpg);
+  position: relative;
+  height: 765px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  margin-bottom: -10px;
+  margin-top: -112px;
+  box-shadow: 0px 0px 10px black;
+}
+
+.main-slice {
+  width: 1250px;
+  height: 830px;
+  margin: 20px auto 0px auto;
+  padding: 130px 0px;
+}
+
+.slice {
+  height: 600px;
+  border-radius: 10px;
+}
+
+.logo {
+  width: 150px;
+  margin-left: -25px;
+  margin-top: -15px;
+  object-fit: contain;
+}
+
+.cart-button {
+  height: 50px;
+  width: 80px;
+  background-color: rgba(75, 105, 45, 0.7);
+  border: none;
+  border-radius: 50px;
+}
+
+.cart-button:hover {
+  background-color: #4b692d;
+}
+
+.cart-button img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Slider CSS */
+.sliderstyle {
+  height: 100%;
+  position: relative;
+}
+
+.leftArrowStyles,
+.rightArrowStyles {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 35px;
+  z-index: 1;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  width: 60px;
+  border-radius: 50%;
+  background-color: rgba(156, 154, 154, 0.8);
+  text-align: center;
+  height: 59px;
+}
+
+.leftArrowStyles {
+  left: 32px;
+}
+
+.rightArrowStyles {
+  right: 32px;
+}
+
+.leftArrowStyles:hover,
+.rightArrowStyles:hover {
+  background-color: rgba(100, 98, 98, 0.8);
+}
+
+.dotsContainerStyles {
+  display: flex;
+  justify-content: center;
+}
+
+.dotStyle {
+  margin: 0 3px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+}
+
+.dotStyle:hover {
+  color: #070707;
+}
+
+/* ✅ Responsive */
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .search-bar-container {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .search-input + button,
+  .search-button {
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .location-dropdown-box {
+    width: 100%;
+  }
+}
