@@ -29,11 +29,6 @@
 ### Screenshot 3
 ![Screenshot 596](screenshots/Screenshot%20(596).png)
 
-### Screenshot 6
-![Screenshot 599](screenshots/Screenshot%20(599).png)
-
-### Screenshot 12
-![Screenshot 605](screenshots/Screenshot%20(605).png)
 
 ### Screenshot 13
 ![Screenshot 606](screenshots/Screenshot%20(606).png)
